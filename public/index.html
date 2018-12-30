@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>商家退货</title>
+  <style type="text/css">
+  body,html{
+    font-family: "Source Han Sans";
+  }
+  div{
+    box-sizing: border-box;
+  }
+</style>
+</head>
+<body>
+  <div id="app"></div>
+  <script type="text/javascript">
+    // (function () {
+    //   document.addEventListener('DOMContentLoaded', function () {
+    //     autoWidth();
+    //   });
+    //   //监听屏幕大小改变
+    //   window.onresize = function(){
+    //     autoWidth();
+    //   };
+    //   //修改适配
+    //   function autoWidth(){
+    //     var html = document.documentElement;
+    //     var windowWidth = parseInt(html.clientWidth);       //html宽度
+    //     html.style.fontSize = windowWidth / 110 + 'px';
+    //   } 
+    // })();
+    (function () {
+      document.addEventListener('DOMContentLoaded', function () {
+        autoWidth();
+      });
+      //监听屏幕大小改变
+      window.onresize = function(){
+        autoWidth();
+      };
+      //修改适配
+      function autoWidth(){
+        var html = document.documentElement;
+        var windowWidth = parseInt(html.clientWidth);       //html宽度
+        var availwidth = parseInt(screen.availWidth);       //屏幕实际宽度
+        if(windowWidth > 750) {
+          console.log("请访问pc端");
+        }else if(windowWidth != availwidth){
+          html.style.fontSize = 50 + 'px';
+        }else{
+          html.style.fontSize = windowWidth / 7.5 + 'px';
+        }
+      } 
+    })();
+  </script>
+</body>
+</html>
