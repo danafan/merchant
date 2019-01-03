@@ -55,6 +55,7 @@
 		padding-right: .2rem;
 		padding-left: .2rem;
 		overflow-y: scroll;
+		-webkit-overflow-scrolling:touch;
 		.styleItem{
 			border-bottom:1px solid #ccc;
 			width: 100%;
@@ -113,7 +114,12 @@
 							o[i] = obj[i];
 							arr.push(o)
 						}
-						this.style = arr;
+						this.style = this.style.concat(Array.from(arr));
+						if(this.page == res.data.lastpage){
+							this.isLoad = false;
+						}else{
+							this.isLoad = true;
+						}
 					}else{
 						this.style = [];
 						this.$toast(res.data.msg);
@@ -138,6 +144,7 @@
 				let day = time.getDate() >= 10 ? time.getDate():"0" + time.getDate();
 				this.title = year + "-" + month + "-" + day;
 				this.page = 1;
+				this.style = [];
 				//获取款式列表
 				this.getStyleList();
 			}

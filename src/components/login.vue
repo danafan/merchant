@@ -116,6 +116,9 @@
 				this.loginState();
 			}
 		},
+		created(){
+			document.title = "登录";
+		},
 		methods:{
 			//登录按钮状态展示
 			loginState(){

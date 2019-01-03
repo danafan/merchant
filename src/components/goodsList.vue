@@ -20,6 +20,7 @@
 		padding-right: .2rem;
 		padding-left: .2rem;
 		overflow-y: scroll;
+		-webkit-overflow-scrolling:touch;
 	}
 	.styleItem{
 		border-bottom:1px solid #ccc;

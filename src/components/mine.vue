@@ -82,6 +82,7 @@
 			}
 		},
 		created(){
+			document.title = "我的";
 			//获取用户信息
 			this.getUserInfo();
 		},

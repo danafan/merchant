@@ -23,8 +23,8 @@
           let code = url.split("?")[1].split("&")[0].split("=")[1]; // 获取code
           this.callback(code);
         }else{
-          // this.getAuthurl();
-          this.$router.push('/index');
+          this.getAuthurl();
+          // this.$router.push('/index');
         }
       }else{
         console.log("授权过");
