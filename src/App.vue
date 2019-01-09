@@ -7,7 +7,6 @@
 
 <script>
   import {mapState} from 'vuex'
-  import store from './store'
   import loading from './components/loading.vue'
   import resource from './api/resource.js'
   export default {
@@ -23,6 +22,10 @@
           let code = url.split("?")[1].split("&")[0].split("=")[1]; // 获取code
           this.callback(code);
         }else{
+          let href = window.location.href;
+          if(!!href.split('#/')[1]){
+            sessionStorage.setItem("href","/" + href.split('#/')[1]);
+          }
           this.getAuthurl();
           // this.$router.push('/index');
         }
@@ -66,7 +69,12 @@
           if(res.data.code == "0"){
             this.$toast(res.data.msg);
           }else if(res.data.code == "1"){
-            this.$router.replace('/index');
+            let href = sessionStorage.getItem("href");
+            if(!!href){
+              this.$router.replace(href);
+            }else{
+              this.$router.replace('/index');
+            };
           }else if(res.data.code == "2"){
             this.$toast("请绑定手机号");
             this.$router.replace('/login');
